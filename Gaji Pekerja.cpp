@@ -1,0 +1,31 @@
+//Program Gaji Karyawan
+#include <iostream>
+
+using namespace std;
+int main(){
+	int gaji_perjam;
+	struct {
+		
+		int jam_kerja, gaji_harian,jam_lembur, gaji_lembur_perjam, gaji_lembur_perhari;// variabel
+	} karyawan; // nama struct
+	
+	gaji_perjam = 50000;
+	cout<<"Masukan jam kerja : "; 
+	cin>>karyawan.jam_kerja;// input data berapa jam kerja 
+
+	if(karyawan.jam_kerja > 7){ // 8 sampai.....sekian
+		karyawan.jam_lembur = karyawan.jam_kerja - 7; // 10 -7 = 3 jam/perhari
+		karyawan.gaji_lembur_perjam = 15 * gaji_perjam; // 15* 50.000 // 750.000
+		karyawan.gaji_lembur_perhari = karyawan.jam_lembur*karyawan.gaji_lembur_perjam; // 3x 750.000 =  2.250.000
+		
+		karyawan.gaji_harian = (gaji_perjam * 7)+karyawan.gaji_lembur_perhari;// 50.000 x 7 =  350.000 + 2.250.000
+	}else{
+		karyawan.gaji_harian = gaji_perjam * karyawan.jam_kerja; // 6 x 50.000 = 300.000
+	}
+	
+	cout<<endl;
+	cout<<"Gaji Harian Anda Sebesar : "<<karyawan.gaji_harian; // 2.600.0000
+	
+	cin.get();
+	return 0;
+}
